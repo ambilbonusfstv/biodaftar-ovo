@@ -1,0 +1,254 @@
+@import url(//db.onlinewebfonts.com/c/2d57f676e3d6955778fb8acac0176b9a?family=Eina01-Bold); @import url(//db.onlinewebfonts.com/c/1868e326d3ee28e5395f6efa2bc037bf?family=Eina01-Regular); :root {
+    --ovo1: #5F33BA;
+    --ovo2: #594D75;
+    --ovo3: #E1DDEB;
+    --ovo4: #EFEBFA;
+    --ovo5: #00ccff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    color: #000;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+/*.b {*/
+/*    font-family: 'Eina01-Bold';*/
+/*}*/
+.b {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+.r {
+    font-family: 'Eina01-Regular';
+}
+
+body {
+    background: #fff;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    padding: 0 20px;
+    height: 100%;
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header i {
+    color: #4f4f4f;
+    text-align: center;
+}
+
+.header .bx-left-arrow-alt {
+    font-size: 30px;
+    margin-left: -6px;
+}
+
+.header .bxs-help-circle {
+    font-size: 22px;
+    margin-right: -2px;
+}
+
+.container .title {
+    width: 100%;
+    height: auto;
+}
+
+.container .title h3 {
+    font-size: 20px;
+}
+
+.container .title p {
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.page1 form {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.page1 form .wrapInp {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.page1 form .wrapInp input {
+    width: 100%;
+    height: 50px;
+    background: var(--ovo4);
+    outline: none;
+    border: none;
+    font-size: 13px;
+    padding-left: 10px;
+    caret-color: var(--ovo1);
+}
+
+.page1 form .label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    min-width: 50px;
+    max-width: 50px;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    background: var(--ovo3);
+}
+
+.page1 form .label p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 13px;
+    color: #757575;
+}
+
+.page1 form i {
+    position: absolute;
+    right: 10px;
+    font-size: 17px;
+    color: var(--ovo2);
+    text-align: center;
+}
+
+.page1 form .reset {
+    font-size: 11px;
+    margin-top: 20px;
+}
+
+.page1 form .reset span {
+    font-size: 11px;
+    color: var(--ovo5);
+}
+
+.page1 form .bgbtn {
+    width: 100%;
+    box-shadow: 10px 0 10px rgba(0,0,0,0.1);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 130px;
+    padding: 20px 10px 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page1 form .bgbtn p {
+    font-size: 10.5px;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+}
+
+.page1 form .bgbtn p span {
+    color: var(--ovo5);
+}
+
+.page1 form .bgbtn button:disabled {
+    background: #c7c7c7;
+}
+
+.page1 form .bgbtn button {
+    margin-bottom: 13px;
+    width: 100%;
+    height: 50px;
+    min-height: 50px;
+    max-height: 50px;
+    outline: none;
+    text-align: center;
+    border: none;
+    background: var(--ovo1);
+    font-size: 15px;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.loadingScreen {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    z-index: 999999;
+    background: var(--ovo1);
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://www.ovo.id/ovo_front_res/img/pattern@3x.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.loadingScreen img {
+    width: 110px;
+    min-width: 110px;
+    max-width: 110px;
+    height: 40px;
+    min-height: 40px;
+    max-height: 40px;
+}
+
+@media screen and (min-width: 900px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--ovo1);
+        background-image: url("https://www.ovo.id/ovo_front_res/img/pattern@3x.png");
+        background-size: cover;
+        background-position: center;
+    }
+
+    .container {
+        background: #fff;
+        border-radius: 10px;
+        width: 450px;
+        min-width: 450px;
+        max-width: 450px;
+        height: 700px;
+        min-height: 700px;
+        max-height: 700px;
+        box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
+
+    .container form {
+        height: 500px;
+        min-height: 500px;
+        max-height: 500px;
+    }
+
+    .container form .bgbtn, .container form .bot {
+        position: absolute;
+        bottom: 0;
+        box-shadow: none;
+    }
+}
